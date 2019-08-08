@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  mysql-dev:
+    image: mysql:8.0.2
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: tododatabase
+    ports:
+      - 3306:3306
+    networks:
+      - todo-app-network
+    volumes:
+      - ~/java/db/mysql-data:/var/lib/mysql
+
+  admin:
+      image: adminer
+      ports:
+        - 8080:8080
+      depends_on:
+        - mysql-dev
+      networks:
+        - todo-app-network
+
+  todo-app:
+    build: .
+    ports:
+      - 80:80
+    networks:
+      - todo-app-network
+    depends_on:
+      - mysql-dev
+    volumes:
+      - ~/java/presentation/todo-app:/app/todo-app
+
+networks:
+  todo-app-network:
