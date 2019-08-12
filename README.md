@@ -1,4 +1,4 @@
-# Java Spring boot app using docker with hot reload
+# Java Spring boot Todo app using docker with hot reload using spring boot dev-tools
 
 ## Setup
 - `docker-compose up --force-recreate`
