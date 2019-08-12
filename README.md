@@ -6,7 +6,7 @@
   - Go to Run -> Run Configurations -> Java Application -> New
   - Choose `org.springframework.boot.devtools.RemoteSpringApplication` as the `main class`
   - Choose `todo-app` as the project
-  - Set http://localhost:8080 to program arguments
+  - Set http://localhost:80 to program arguments
 
 ## Useful Commands
 - `docker-compose up --force-recreate -d`
